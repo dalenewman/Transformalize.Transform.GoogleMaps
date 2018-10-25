@@ -82,6 +82,12 @@ namespace Transformalize.Transform.GoogleMaps {
                 return;
             }
 
+            if (Run) {
+                Context.Debug(() => "GeocodeTransform (google-geocode) is initialized and will run.");
+            } else {
+                Context.Debug(() => "GeocodeTransform (google-geocode) will not run due to setup issues.");
+            }
+
             _input = SingleInputForMultipleOutput();
             _output = MultipleOutput();
 
@@ -97,6 +103,8 @@ namespace Transformalize.Transform.GoogleMaps {
                 PostalCode = Context.Operation.PostalCode,
                 Route = Context.Operation.Route
             };
+
+
         }
 
         public override IEnumerable<IRow> Operate(IEnumerable<IRow> rows) {
@@ -174,8 +182,10 @@ namespace Transformalize.Transform.GoogleMaps {
 
         public override void Dispose() {
             base.Dispose();
-            _rateGate.Dispose();
-            ServicePointManager.DefaultConnectionLimit = _originalConnectionLimit;
+            _rateGate?.Dispose();
+            if (_originalConnectionLimit > 0) {
+                ServicePointManager.DefaultConnectionLimit = _originalConnectionLimit;
+            }
         }
     }
 }

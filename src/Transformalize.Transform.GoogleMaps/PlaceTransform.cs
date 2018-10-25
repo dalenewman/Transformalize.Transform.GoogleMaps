@@ -16,14 +16,14 @@
 // limitations under the License.
 #endregion
 
+using Google.Maps;
+using Google.Maps.Places;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
-using Google.Maps;
-using Google.Maps.Places;
 using Transformalize.Configuration;
 using Transformalize.Contracts;
 using Transformalize.Extensions;
@@ -81,6 +81,13 @@ namespace Transformalize.Transform.GoogleMaps {
                 Error("The google-place transform requires a collection of output fields; namely: placeid, latitude (optional), longitude (optional), and formattedaddress (optional).");
                 Run = false;
                 return;
+            }
+
+
+            if (Run) {
+                Context.Debug(() => "PlaceTransform (google-place) is initialized and will run.");
+            } else {
+                Context.Debug(() => "PlaceTransform (google-place) will not run due to setup issues.");
             }
 
             _input = SingleInputForMultipleOutput();
@@ -173,8 +180,11 @@ namespace Transformalize.Transform.GoogleMaps {
 
         public override void Dispose() {
             base.Dispose();
-            _rateGate.Dispose();
-            ServicePointManager.DefaultConnectionLimit = _originalConnectionLimit;
+            _rateGate?.Dispose();
+            if (_originalConnectionLimit > 0) {
+                ServicePointManager.DefaultConnectionLimit = _originalConnectionLimit;
+            }
+
         }
     }
 }
