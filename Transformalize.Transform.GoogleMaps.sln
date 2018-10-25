@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2046
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Transformalize.Transform.GoogleMaps", "src\Transformalize.Transform.GoogleMaps\Transformalize.Transform.GoogleMaps.csproj", "{D1FC30B8-AFFC-4C3A-A99F-5555D1465DB1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Transformalize.Transform.GoogleMaps.Autofac", "src\Transformalize.Transform.GoogleMaps.Autofac\Transformalize.Transform.GoogleMaps.Autofac.csproj", "{EBDDC97C-BBC1-493E-9DFD-C74478B34E8E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "src\Test\Test.csproj", "{BB2CD4B3-32D8-4B60-ABD8-4FD2C488AF73}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D1FC30B8-AFFC-4C3A-A99F-5555D1465DB1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1FC30B8-AFFC-4C3A-A99F-5555D1465DB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1FC30B8-AFFC-4C3A-A99F-5555D1465DB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1FC30B8-AFFC-4C3A-A99F-5555D1465DB1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EBDDC97C-BBC1-493E-9DFD-C74478B34E8E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EBDDC97C-BBC1-493E-9DFD-C74478B34E8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EBDDC97C-BBC1-493E-9DFD-C74478B34E8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EBDDC97C-BBC1-493E-9DFD-C74478B34E8E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB2CD4B3-32D8-4B60-ABD8-4FD2C488AF73}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB2CD4B3-32D8-4B60-ABD8-4FD2C488AF73}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB2CD4B3-32D8-4B60-ABD8-4FD2C488AF73}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB2CD4B3-32D8-4B60-ABD8-4FD2C488AF73}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B9F62431-DF33-44E2-97C9-6F2560784FB4}
+	EndGlobalSection
+EndGlobal
