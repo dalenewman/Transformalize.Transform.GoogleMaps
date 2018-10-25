@@ -169,6 +169,7 @@ namespace Transformalize.Transform.GoogleMaps {
 
         public override IEnumerable<OperationSignature> GetSignatures() {
             yield return new OperationSignature("google-geocode") { Parameters = new List<OperationParameter>(1) { new OperationParameter("key") } };
+            yield return new OperationSignature("fromaddress") { Parameters = new List<OperationParameter>(1) { new OperationParameter("key") } };
         }
 
         public override void Dispose() {
