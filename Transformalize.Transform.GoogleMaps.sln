@@ -9,6 +9,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Transformalize.Transform.Go
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "src\Test\Test.csproj", "{BB2CD4B3-32D8-4B60-ABD8-4FD2C488AF73}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "nuget", "nuget", "{26319D21-BD06-4A86-A40D-790A6B465AF4}"
+	ProjectSection(SolutionItems) = preProject
+		nuget\nuget.bat = nuget\nuget.bat
+		nuget\nuget.exe = nuget\nuget.exe
+		nuget\Transformalize.Transform.GoogleMaps.Autofac.nuspec = nuget\Transformalize.Transform.GoogleMaps.Autofac.nuspec
+		nuget\Transformalize.Transform.GoogleMaps.nuspec = nuget\Transformalize.Transform.GoogleMaps.nuspec
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
