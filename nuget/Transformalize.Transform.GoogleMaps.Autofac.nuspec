@@ -2,7 +2,7 @@
 <package>
   <metadata>
     <id>Transformalize.Transform.GoogleMaps.Autofac</id>
-    <version>0.3.11-beta</version>
+    <version>0.3.12-beta</version>
     <title>Transformalize Transform using Google Maps API Autofac Module</title>
     <authors>Dale Newman</authors>
     <owners>Dale Newman</owners>
@@ -10,13 +10,13 @@
     <projectUrl>https://github.com/dalenewman/Transformalize.Transform.GoogleMaps</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Transformalize Transform using Google Maps API Autofac Module</description>
-    <releaseNotes>initial</releaseNotes>
+    <releaseNotes>added dependency</releaseNotes>
     <copyright>Copyright 2018</copyright>
     <tags>etl</tags>
     <dependencies>
       <group targetFramework="net462">
         <dependency id="Autofac" version="4.6.2" />
-        <dependency id="Transformalize.Transform.GoogleMaps" version="0.3.11-beta" />
+        <dependency id="Transformalize.Transform.GoogleMaps" version="0.3.12-beta" />
       </group>
     </dependencies>
   </metadata>
