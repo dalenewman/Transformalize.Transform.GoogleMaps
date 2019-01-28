@@ -46,7 +46,7 @@ namespace Transformalize.Transform.GoogleMaps {
                 return;
             }
 
-            if (IsMissing(Context.Operation.Key)) {
+            if (IsMissing(Context.Operation.ApiKey)) {
                 return;
             }
 
@@ -93,7 +93,7 @@ namespace Transformalize.Transform.GoogleMaps {
             _input = SingleInputForMultipleOutput();
             _output = MultipleOutput();
 
-            GoogleSigned.AssignAllServices(new GoogleSigned(Context.Operation.Key));
+            GoogleSigned.AssignAllServices(new GoogleSigned(Context.Operation.ApiKey));
 
             _originalConnectionLimit = ServicePointManager.DefaultConnectionLimit;
             ServicePointManager.DefaultConnectionLimit = 255;
@@ -175,7 +175,7 @@ namespace Transformalize.Transform.GoogleMaps {
         }
 
         public override IEnumerable<OperationSignature> GetSignatures() {
-            yield return new OperationSignature("google-place") { Parameters = new List<OperationParameter>(1) { new OperationParameter("key") } };
+            yield return new OperationSignature("google-place") { Parameters = new List<OperationParameter>(1) { new OperationParameter("apikey") } };
         }
 
         public override void Dispose() {

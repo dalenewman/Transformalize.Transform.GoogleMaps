@@ -13,7 +13,7 @@ namespace Test {
     [TestClass]
     public class UnitTest1 {
 
-        public const string GoogleKey = "<YOUR-GOOGLE-KEY-HERE>";
+        public const string GoogleKey = "<your google api key here>";
 
         [TestMethod]
         public void TestGeoCodeWithAddress() {
@@ -137,7 +137,7 @@ namespace Test {
                                 Transforms = new List<Operation>(1){
                                     new Operation {
                                         Method = method,
-                                        Key = GoogleKey,
+                                        ApiKey = GoogleKey,
                                         Fields = new List<Field> {
                                             new Field { Name = "Latitude", Type = "double" },
                                             new Field { Name = "Longitude", Type = "double" },
