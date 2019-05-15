@@ -36,16 +36,19 @@
     <Reference Include="CfgNet, Version=0.10.4.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Cfg-NET.0.10.4\lib\net462\CfgNet.dll</HintPath>
     </Reference>
-    <Reference Include="Google.Maps, Version=0.25.0.0, Culture=neutral, PublicKeyToken=4aa992bb5d22d4ff, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\gmaps-api-net.0.25.0\lib\net461\Google.Maps.dll</HintPath>
+    <Reference Include="DateMath, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\DateMath.1.0.0\lib\net45\DateMath.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Maps, Version=0.32.0.0, Culture=neutral, PublicKeyToken=4aa992bb5d22d4ff, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\gmaps-api-net.0.32.0\lib\net461\Google.Maps.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="Transformalize, Version=0.5.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Transformalize.0.5.1-beta\lib\net462\Transformalize.dll</HintPath>
+    <Reference Include="Transformalize, Version=0.6.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Transformalize.0.6.4-beta\lib\net462\Transformalize.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

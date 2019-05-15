@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28010.2046
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28803.352
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Transformalize.Transform.GoogleMaps", "src\Transformalize.Transform.GoogleMaps\Transformalize.Transform.GoogleMaps.csproj", "{D1FC30B8-AFFC-4C3A-A99F-5555D1465DB1}"
 EndProject
@@ -12,7 +12,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "nuget", "nuget", "{26319D21-BD06-4A86-A40D-790A6B465AF4}"
 	ProjectSection(SolutionItems) = preProject
 		nuget\nuget.bat = nuget\nuget.bat
-		nuget\nuget.exe = nuget\nuget.exe
 		nuget\Transformalize.Transform.GoogleMaps.Autofac.nuspec = nuget\Transformalize.Transform.GoogleMaps.Autofac.nuspec
 		nuget\Transformalize.Transform.GoogleMaps.nuspec = nuget\Transformalize.Transform.GoogleMaps.nuspec
 	EndProjectSection
