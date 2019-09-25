@@ -2,19 +2,19 @@
 <package>
   <metadata>
     <id>Transformalize.Transform.GoogleMaps</id>
-    <version>0.6.4-beta</version>
+    <version>0.6.19-beta</version>
     <title>Transformalize Transform using Google Maps API</title>
     <authors>Dale Newman</authors>
     <owners>Dale Newman</owners>
     <projectUrl>https://github.com/dalenewman/Transformalize.Transform.GoogleMaps</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Transformalize Transform using Google Maps API</description>
-    <releaseNotes>updated dependencies</releaseNotes>
+    <releaseNotes>Return PartialMatch, State, and/or Zip if desired.</releaseNotes>
     <copyright>Copyright 2018-2019</copyright>
     <tags>etl</tags>
     <dependencies>
       <group targetFramework="net462">
-        <dependency id="Transformalize" version="0.6.4-beta" />
+        <dependency id="Transformalize" version="0.6.19-beta" />
         <dependency id="gmaps-api-net" version="0.32.0" />
       </group>
     </dependencies>
