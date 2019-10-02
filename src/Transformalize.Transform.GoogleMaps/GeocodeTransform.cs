@@ -41,6 +41,7 @@ namespace Transformalize.Transform.GoogleMaps {
       private readonly ComponentFilter _componentFilter;
       private readonly GeocodingService _service;
 
+
       public GeocodeTransform(IContext context = null) : base(context, "object") {
 
          ProducesFields = true;
@@ -84,12 +85,6 @@ namespace Transformalize.Transform.GoogleMaps {
             return;
          }
 
-         if (Run) {
-            Context.Debug(() => "GeocodeTransform (google-geocode) is initialized and will run.");
-         } else {
-            Context.Debug(() => "GeocodeTransform (google-geocode) will not run due to setup issues.");
-         }
-
          _input = SingleInputForMultipleOutput();
          _output = MultipleOutput();
 
@@ -106,25 +101,34 @@ namespace Transformalize.Transform.GoogleMaps {
             Route = Context.Operation.Route
          };
 
+
          try {
             _service = new GeocodingService();
-         } catch (Exception) {
-            Context.Error("Couldn't create geocoding service!");
+         } catch (Exception ex) {
             Run = false;
+            Context.Error("Could not construct GeocodingService. {0}", ex.Message);
+         }
+
+         if (Run) {
+            Context.Debug(() => "GeocodeTransform (google-geocode) is initialized and will run.");
+         } else {
+            Context.Debug(() => "GeocodeTransform (google-geocode) will not run due to setup issues.");
          }
 
       }
 
       public override IEnumerable<IRow> Operate(IEnumerable<IRow> rows) {
-         foreach (var batch in rows.Partition(Context.Entity.UpdateSize)) {
-            var enumerated = batch.ToArray();
-            var collected = new ConcurrentBag<IRow>();
-            Parallel.ForEach(enumerated, (row) => {
-               _rateGate.WaitToProceed();
-               collected.Add(Operate(row));
-            });
-            foreach (var row in collected) {
-               yield return row;
+         if (Run) {
+            foreach (var batch in rows.Partition(Context.Entity.UpdateSize)) {
+               var enumerated = batch.ToArray();
+               var collected = new ConcurrentBag<IRow>();
+               Parallel.ForEach(enumerated, (row) => {
+                  _rateGate.WaitToProceed();
+                  collected.Add(Operate(row));
+               });
+               foreach (var row in collected) {
+                  yield return row;
+               }
             }
          }
       }
@@ -139,76 +143,75 @@ namespace Transformalize.Transform.GoogleMaps {
             request.PlaceId = query;
          }
 
-         using (_service) {
-            try {
-               var response = _service.GetResponse(request);
+         try {
+            var response = _service.GetResponse(request);
 
-               switch (response.Status) {
-                  case ServiceResponseStatus.Ok:
-                     var first = response.Results.First();
-                     foreach (var field in _output) {
+            switch (response.Status) {
+               case ServiceResponseStatus.Ok:
+                  var first = response.Results.First();
+                  foreach (var field in _output) {
 
-                        switch (field.Name.ToLower()) {
-                           case "partialmatch":
-                              row[field] = first.PartialMatch;
+                     switch (field.Name.ToLower()) {
+                        case "partialmatch":
+                           row[field] = first.PartialMatch;
+                           break;
+                        case "lat":
+                        case "latitude":
+                           row[field] = first.Geometry.Location.Latitude;
+                           break;
+                        case "type":
+                        case "locationtype":
+                           row[field] = first.Geometry.LocationType.ToString();
+                           break;
+                        case "place":
+                        case "placeid":
+                           row[field] = first.PlaceId;
+                           break;
+                        case "state":
+                        case "administrative_area_level_1":
+                           var state = first.AddressComponents.FirstOrDefault(ac => ac.Types.Any(t => t.Equals(AddressType.AdministrativeAreaLevel1)));
+                           if (state != null) {
+                              row[field] = state.ShortName;
+                           }
+                           break;
+                        case "country":
+                           var country = first.AddressComponents.FirstOrDefault(ac => ac.Types.Any(t => t.Equals(AddressType.Country)));
+                           if (country != null) {
+                              row[field] = country.ShortName;
+                           }
+                           break;
+                        case "zip":
+                        case "zipcode":
+                        case "postalcode":
+                           var zip = first.AddressComponents.FirstOrDefault(ac => ac.Types.Any(t => t.Equals(AddressType.PostalCode)));
+                           if (zip != null) {
+                              row[field] = zip.ShortName;
+                           }
+                           break;
+                        case "lon":
+                        case "long":
+                        case "longitude":
+                           row[field] = first.Geometry.Location.Longitude;
+                           break;
+                        case "address":
+                        case "formattedaddress":
+                           if (field.Equals(_input))
                               break;
-                           case "lat":
-                           case "latitude":
-                              row[field] = first.Geometry.Location.Latitude;
-                              break;
-                           case "type":
-                           case "locationtype":
-                              row[field] = first.Geometry.LocationType.ToString();
-                              break;
-                           case "place":
-                           case "placeid":
-                              row[field] = first.PlaceId;
-                              break;
-                           case "state":
-                           case "administrative_area_level_1":
-                              var state = first.AddressComponents.FirstOrDefault(ac => ac.Types.Any(t => t.Equals(AddressType.AdministrativeAreaLevel1)));
-                              if(state != null) {
-                                 row[field] = state.ShortName;
-                              }
-                              break;
-                           case "country":
-                              var country = first.AddressComponents.FirstOrDefault(ac => ac.Types.Any(t => t.Equals(AddressType.Country)));
-                              if (country != null) {
-                                 row[field] = country.ShortName;
-                              }
-                              break;
-                           case "zip":
-                           case "zipcode":
-                           case "postalcode":
-                              var zip = first.AddressComponents.FirstOrDefault(ac => ac.Types.Any(t => t.Equals(AddressType.PostalCode)));
-                              if (zip != null) {
-                                 row[field] = zip.ShortName;
-                              }
-                              break;
-                           case "lon":
-                           case "long":
-                           case "longitude":
-                              row[field] = first.Geometry.Location.Longitude;
-                              break;
-                           case "address":
-                           case "formattedaddress":
-                              if (field.Equals(_input))
-                                 break;
-                              row[field] = first.FormattedAddress;
-                              Context.Debug(() => first.FormattedAddress);
-                              break;
-                        }
+                           row[field] = first.FormattedAddress;
+                           Context.Debug(() => first.FormattedAddress);
+                           break;
                      }
-                     break;
-                  default:
-                     Context.Error("Error from Google MAPS API: " + response.Status);
-                     break;
-               }
-
-            } catch (Exception ex) {
-               Context.Error(ex.Message);
+                  }
+                  break;
+               default:
+                  Context.Error("Error from Google MAPS API: " + response.Status);
+                  break;
             }
+
+         } catch (Exception ex) {
+            Context.Error(ex.Message);
          }
+
          return row;
       }
 
