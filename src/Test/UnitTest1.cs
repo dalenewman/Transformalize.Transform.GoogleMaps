@@ -167,7 +167,7 @@ namespace Test {
             }
          };
 
-         process.Check();
+         process.Load();
 
          return process;
       }
