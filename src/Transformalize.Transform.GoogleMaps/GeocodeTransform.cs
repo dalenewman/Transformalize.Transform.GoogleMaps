@@ -174,6 +174,13 @@ namespace Transformalize.Transform.GoogleMaps {
                               row[field] = state.ShortName;
                            }
                            break;
+                        case "county":
+                        case "administrative_area_level_2":
+                           var county = first.AddressComponents.FirstOrDefault(ac => ac.Types.Any(t => t.Equals(AddressType.AdministrativeAreaLevel2)));
+                           if (county != null) {
+                              row[field] = county.ShortName;
+                           }
+                           break;
                         case "country":
                            var country = first.AddressComponents.FirstOrDefault(ac => ac.Types.Any(t => t.Equals(AddressType.Country)));
                            if (country != null) {

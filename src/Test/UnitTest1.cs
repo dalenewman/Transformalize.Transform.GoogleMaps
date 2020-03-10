@@ -13,7 +13,7 @@ namespace Test {
    [TestClass]
    public class UnitTest1 {
 
-      public const string GoogleKey = "<google-key-here>";
+      public const string GoogleKey = "<api-key>";
 
       [TestMethod]
       public void TestGeoCodeWithAddress() {
@@ -35,6 +35,7 @@ namespace Test {
          var longitude = process.Entities.First().CalculatedFields.First(f => f.Name == "Longitude");
          var formattedAddress = process.Entities.First().CalculatedFields.First(f => f.Name == "FormattedAddress");
          var state = process.Entities.First().CalculatedFields.First(f => f.Name == "State");
+         var county = process.Entities.First().CalculatedFields.First(f => f.Name == "County");
          var partialMatch = process.Entities.First().CalculatedFields.First(f => f.Name == "PartialMatch");
 
          input[address] = "1009 Broad Street St. Joseph MI 49085";
@@ -50,6 +51,7 @@ namespace Test {
             Assert.AreEqual("1009 Broad Street St. Joseph MI 49085", output[address]);
             Assert.AreEqual("MI", output[state]);
             Assert.AreEqual(false, output[partialMatch]);
+            Assert.AreEqual("Berrien County", output[county]);
             Assert.IsNotNull(output[latitude]);
             Assert.IsNotNull(output[longitude]);
             Assert.IsNotNull(output[formattedAddress]);
@@ -156,6 +158,7 @@ namespace Test {
                                        new Field { Name = "PlaceId" },
                                        new Field { Name = "LocationType" },
                                        new Field { Name = "State", Length="2" },
+                                       new Field { Name = "County" },
                                        new Field { Name = "Zip", Length="10" },
                                        new Field { Name = "PartialMatch", Type = "bool" }
                                     }
