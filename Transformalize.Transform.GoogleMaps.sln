@@ -17,7 +17,31 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "nuget", "nuget", "{26319D21
 		nuget\Transformalize.Transform.GoogleMaps.nuspec = nuget\Transformalize.Transform.GoogleMaps.nuspec
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Transform", "Transform", "{1F0CA0D5-C3DF-4FA8-8247-B8A8BA5D8317}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Transform.Autofac", "Transform.Autofac", "{C6C2B5DC-1F46-4346-88C5-2BE999AA3CAD}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Transformalize.Transform.GoogleMaps.Shared", "src\Transformalize.Transform.GoogleMaps.Shared\Transformalize.Transform.GoogleMaps.Shared.shproj", "{CB383B2E-9341-4D1C-A9D8-5D3922A165B2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Transformalize.Transform.GoogleMaps.Standard", "src\Transformalize.Transform.GoogleMaps.Standard\Transformalize.Transform.GoogleMaps.Standard.csproj", "{20569E08-41BB-4979-9546-263E46CF955C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{F53CAC08-45B1-4C8F-BCA7-29D89F09E207}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Test.Shared", "src\Test.Shared\Test.Shared.shproj", "{DAC8BB1D-78AB-4B94-8CF8-9B80406FFD15}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.Framework", "src\Test.Framework\Test.Framework.csproj", "{5948963A-4EFF-45F2-9A9B-5E493DA0D455}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.Core", "src\Test.Core\Test.Core.csproj", "{E223D1E2-8508-42E2-BFA9-430E8991470A}"
+EndProject
 Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		src\Transformalize.Transform.GoogleMaps.Shared\Transformalize.Transform.GoogleMaps.Shared.projitems*{20569e08-41bb-4979-9546-263e46cf955c}*SharedItemsImports = 5
+		src\Test.Shared\Test.Shared.projitems*{5948963a-4eff-45f2-9a9b-5e493da0d455}*SharedItemsImports = 4
+		src\Transformalize.Transform.GoogleMaps.Shared\Transformalize.Transform.GoogleMaps.Shared.projitems*{cb383b2e-9341-4d1c-a9d8-5d3922a165b2}*SharedItemsImports = 13
+		src\Transformalize.Transform.GoogleMaps.Shared\Transformalize.Transform.GoogleMaps.Shared.projitems*{d1fc30b8-affc-4c3a-a99f-5555d1465db1}*SharedItemsImports = 4
+		src\Test.Shared\Test.Shared.projitems*{dac8bb1d-78ab-4b94-8cf8-9b80406ffd15}*SharedItemsImports = 13
+		src\Test.Shared\Test.Shared.projitems*{e223d1e2-8508-42e2-bfa9-430e8991470a}*SharedItemsImports = 5
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
@@ -35,9 +59,31 @@ Global
 		{BB2CD4B3-32D8-4B60-ABD8-4FD2C488AF73}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BB2CD4B3-32D8-4B60-ABD8-4FD2C488AF73}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BB2CD4B3-32D8-4B60-ABD8-4FD2C488AF73}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20569E08-41BB-4979-9546-263E46CF955C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20569E08-41BB-4979-9546-263E46CF955C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20569E08-41BB-4979-9546-263E46CF955C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20569E08-41BB-4979-9546-263E46CF955C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5948963A-4EFF-45F2-9A9B-5E493DA0D455}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5948963A-4EFF-45F2-9A9B-5E493DA0D455}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5948963A-4EFF-45F2-9A9B-5E493DA0D455}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5948963A-4EFF-45F2-9A9B-5E493DA0D455}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E223D1E2-8508-42E2-BFA9-430E8991470A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E223D1E2-8508-42E2-BFA9-430E8991470A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E223D1E2-8508-42E2-BFA9-430E8991470A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E223D1E2-8508-42E2-BFA9-430E8991470A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D1FC30B8-AFFC-4C3A-A99F-5555D1465DB1} = {1F0CA0D5-C3DF-4FA8-8247-B8A8BA5D8317}
+		{EBDDC97C-BBC1-493E-9DFD-C74478B34E8E} = {C6C2B5DC-1F46-4346-88C5-2BE999AA3CAD}
+		{BB2CD4B3-32D8-4B60-ABD8-4FD2C488AF73} = {F53CAC08-45B1-4C8F-BCA7-29D89F09E207}
+		{CB383B2E-9341-4D1C-A9D8-5D3922A165B2} = {1F0CA0D5-C3DF-4FA8-8247-B8A8BA5D8317}
+		{20569E08-41BB-4979-9546-263E46CF955C} = {1F0CA0D5-C3DF-4FA8-8247-B8A8BA5D8317}
+		{DAC8BB1D-78AB-4B94-8CF8-9B80406FFD15} = {F53CAC08-45B1-4C8F-BCA7-29D89F09E207}
+		{5948963A-4EFF-45F2-9A9B-5E493DA0D455} = {F53CAC08-45B1-4C8F-BCA7-29D89F09E207}
+		{E223D1E2-8508-42E2-BFA9-430E8991470A} = {F53CAC08-45B1-4C8F-BCA7-29D89F09E207}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B9F62431-DF33-44E2-97C9-6F2560784FB4}
