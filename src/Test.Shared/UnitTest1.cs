@@ -13,7 +13,7 @@ namespace Test {
    [TestClass]
    public class UnitTest1 {
 
-      public const string GoogleKey = "AIzaSyCBcQD5kUfeXqWN42RIrqTkOP3l_SD30Ug";
+      public const string GoogleKey = "<key>";
 
       [TestMethod]
       public void TestGeoCodeWithAddress() {
