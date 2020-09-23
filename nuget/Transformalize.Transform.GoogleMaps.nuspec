@@ -2,14 +2,14 @@
 <package>
    <metadata>
       <id>Transformalize.Transform.GoogleMaps</id>
-      <version>0.8.26-beta</version>
+      <version>0.8.27-beta</version>
       <title>Transformalize Transform using Google Maps API</title>
       <authors>Dale Newman</authors>
       <owners>Dale Newman</owners>
       <projectUrl>https://github.com/dalenewman/Transformalize.Transform.GoogleMaps</projectUrl>
       <requireLicenseAcceptance>false</requireLicenseAcceptance>
       <description>Transformalize Transform using Google Maps API</description>
-      <releaseNotes></releaseNotes>
+      <releaseNotes>may return locality or political</releaseNotes>
       <copyright>Copyright 2018-2020</copyright>
       <tags>etl</tags>
       <dependencies>

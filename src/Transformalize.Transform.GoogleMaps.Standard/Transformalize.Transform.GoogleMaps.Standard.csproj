@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Version>0.8.26-beta</Version>
+    <Version>0.8.27-beta</Version>
     <AssemblyName>Transformalize.Transform.GoogleMaps</AssemblyName>
     <RootNamespace>Transformalize.Transforms.GoogleMaps.Standard</RootNamespace>
   </PropertyGroup>

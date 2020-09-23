@@ -167,6 +167,18 @@ namespace Transformalize.Transform.GoogleMaps {
                         case "placeid":
                            row[field] = first.PlaceId;
                            break;
+                        case "locality":
+                           var locality = first.AddressComponents.FirstOrDefault(ac => ac.Types.Any(t => t.Equals(AddressType.Locality)));
+                           if(locality != null) {
+                              row[field] = locality.ShortName;
+                           }
+                           break;
+                        case "political":
+                           var political = first.AddressComponents.FirstOrDefault(ac => ac.Types.Any(t => t.Equals(AddressType.Political)));
+                           if(political != null) {
+                              row[field] = political.ShortName;
+                           }
+                           break;
                         case "state":
                         case "administrative_area_level_1":
                            var state = first.AddressComponents.FirstOrDefault(ac => ac.Types.Any(t => t.Equals(AddressType.AdministrativeAreaLevel1)));

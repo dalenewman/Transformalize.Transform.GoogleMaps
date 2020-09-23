@@ -13,7 +13,7 @@ namespace Test {
    [TestClass]
    public class UnitTest1 {
 
-      public const string GoogleKey = "<put key here>";
+      public const string GoogleKey = "AIzaSyCBcQD5kUfeXqWN42RIrqTkOP3l_SD30Ug";
 
       [TestMethod]
       public void TestGeoCodeWithAddress() {
@@ -37,6 +37,7 @@ namespace Test {
          var state = process.Entities.First().CalculatedFields.First(f => f.Name == "State");
          var county = process.Entities.First().CalculatedFields.First(f => f.Name == "County");
          var partialMatch = process.Entities.First().CalculatedFields.First(f => f.Name == "PartialMatch");
+         var locality = process.Entities.First().CalculatedFields.First(f => f.Name == "Locality");
 
          input[address] = "1009 Broad Street St. Joseph MI 49085";
          input[latitude] = null;
@@ -52,6 +53,7 @@ namespace Test {
             Assert.AreEqual("MI", output[state]);
             Assert.AreEqual(false, output[partialMatch]);
             Assert.AreEqual("Berrien County", output[county]);
+            Assert.AreEqual("St Joseph", output[locality]);
             Assert.IsNotNull(output[latitude]);
             Assert.IsNotNull(output[longitude]);
             Assert.IsNotNull(output[formattedAddress]);
@@ -80,7 +82,7 @@ namespace Test {
          var formattedAddress = process.Entities.First().CalculatedFields.First(f => f.Name == "FormattedAddress");
          var place = process.Entities.First().CalculatedFields.First(f => f.Name == "PlaceId");
 
-         input[address] = "1009 Broad St. Joe 49085";
+         input[address] = "1009 Broad St Joseph 49085";
          input[latitude] = null;
          input[longitude] = null;
          input[formattedAddress] = null;
@@ -89,7 +91,7 @@ namespace Test {
          using (var gt = new PlaceTransform(context)) {
             var output = gt.Operate(input);
 
-            Assert.AreEqual("1009 Broad St. Joe 49085", output[address]);
+            Assert.AreEqual("1009 Broad St Joseph 49085", output[address]);
             Assert.AreEqual("ChIJsxyoG5_GEIgRMN8IWvngddA", output[place]);
             Assert.IsNotNull(output[latitude]);
             Assert.IsNotNull(output[longitude]);
@@ -160,7 +162,8 @@ namespace Test {
                                        new Field { Name = "State", Length="2" },
                                        new Field { Name = "County" },
                                        new Field { Name = "Zip", Length="10" },
-                                       new Field { Name = "PartialMatch", Type = "bool" }
+                                       new Field { Name = "PartialMatch", Type = "bool" },
+                                       new Field { Name = "Locality" }
                                     }
                               }
                            }
