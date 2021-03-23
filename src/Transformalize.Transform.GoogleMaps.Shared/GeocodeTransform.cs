@@ -101,7 +101,6 @@ namespace Transformalize.Transform.GoogleMaps {
             Route = Context.Operation.Route
          };
 
-
          try {
             _service = new GeocodingService();
          } catch (Exception ex) {
@@ -152,6 +151,54 @@ namespace Transformalize.Transform.GoogleMaps {
                   foreach (var field in _output) {
 
                      switch (field.Name.ToLower()) {
+                        case "route":
+                           var route = first.AddressComponents.FirstOrDefault(ac => ac.Types.Any(t => t.Equals(AddressType.Route)));
+                           if (route != null) {
+                              row[field] = route.ShortName;
+                           }
+                           break;
+                        case "streetnumber":
+                           var streetNumber = first.AddressComponents.FirstOrDefault(ac => ac.Types.Any(t => t.Equals(AddressType.StreetNumber)));
+                           if (streetNumber != null) {
+                              row[field] = streetNumber.ShortName;
+                           }
+                           break;
+                        case "streetaddress":
+                           var streetAddress = first.AddressComponents.FirstOrDefault(ac => ac.Types.Any(t => t.Equals(AddressType.StreetAddress)));
+                           if (streetAddress != null) {
+                              row[field] = streetAddress.ShortName;
+                           }
+                           break;
+                        case "premise":
+                           var premise = first.AddressComponents.FirstOrDefault(ac => ac.Types.Any(t => t.Equals(AddressType.Premise)));
+                           if (premise != null) {
+                              row[field] = premise.ShortName;
+                           }
+                           break;
+                        case "subpremise":
+                           var subPremise = first.AddressComponents.FirstOrDefault(ac => ac.Types.Any(t => t.Equals(AddressType.Subpremise)));
+                           if (subPremise != null) {
+                              row[field] = subPremise.ShortName;
+                           }
+                           break;
+                        case "floor":
+                           var floor = first.AddressComponents.FirstOrDefault(ac => ac.Types.Any(t => t.Equals(AddressType.Floor)));
+                           if (floor != null) {
+                              row[field] = floor.ShortName;
+                           }
+                           break;
+                        case "room":
+                           var room = first.AddressComponents.FirstOrDefault(ac => ac.Types.Any(t => t.Equals(AddressType.Room)));
+                           if (room != null) {
+                              row[field] = room.ShortName;
+                           }
+                           break;
+                        case "neighborhood":
+                           var neighborhood = first.AddressComponents.FirstOrDefault(ac => ac.Types.Any(t => t.Equals(AddressType.Neighborhood)));
+                           if (neighborhood != null) {
+                              row[field] = neighborhood.ShortName;
+                           }
+                           break;
                         case "partialmatch":
                            row[field] = first.PartialMatch;
                            break;
@@ -169,13 +216,13 @@ namespace Transformalize.Transform.GoogleMaps {
                            break;
                         case "locality":
                            var locality = first.AddressComponents.FirstOrDefault(ac => ac.Types.Any(t => t.Equals(AddressType.Locality)));
-                           if(locality != null) {
+                           if (locality != null) {
                               row[field] = locality.ShortName;
                            }
                            break;
                         case "political":
                            var political = first.AddressComponents.FirstOrDefault(ac => ac.Types.Any(t => t.Equals(AddressType.Political)));
-                           if(political != null) {
+                           if (political != null) {
                               row[field] = political.ShortName;
                            }
                            break;

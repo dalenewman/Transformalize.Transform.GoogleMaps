@@ -82,7 +82,7 @@ namespace Test {
          var formattedAddress = process.Entities.First().CalculatedFields.First(f => f.Name == "FormattedAddress");
          var place = process.Entities.First().CalculatedFields.First(f => f.Name == "PlaceId");
 
-         input[address] = "1009 Broad St Joseph 49085";
+         input[address] = "1009 Broad St Joseph Michigan 49085";
          input[latitude] = null;
          input[longitude] = null;
          input[formattedAddress] = null;

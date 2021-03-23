@@ -1,17 +1,13 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
-
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Version>0.8.27-beta</Version>
+    <Version>0.8.30-beta</Version>
     <AssemblyName>Transformalize.Transform.GoogleMaps</AssemblyName>
     <RootNamespace>Transformalize.Transforms.GoogleMaps.Standard</RootNamespace>
   </PropertyGroup>
-
   <Import Project="..\Transformalize.Transform.GoogleMaps.Shared\Transformalize.Transform.GoogleMaps.Shared.projitems" Label="Shared" />
-
   <ItemGroup>
     <PackageReference Include="gmaps-api-net" Version="0.32.0" />
-    <PackageReference Include="Transformalize" Version="0.8.26-beta" />
+    <PackageReference Include="Transformalize" Version="0.8.39-beta" />
   </ItemGroup>
-
 </Project>
