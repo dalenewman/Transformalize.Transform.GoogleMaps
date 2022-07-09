@@ -33,22 +33,22 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CfgNet, Version=0.13.3.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Cfg-NET.0.13.3-beta\lib\net462\CfgNet.dll</HintPath>
+    <Reference Include="CfgNet, Version=0.14.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Cfg-NET.0.14.0-beta\lib\net462\CfgNet.dll</HintPath>
     </Reference>
     <Reference Include="DateMath, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\DateMath.1.2.0\lib\net462\DateMath.dll</HintPath>
     </Reference>
-    <Reference Include="Google.Maps, Version=0.32.0.0, Culture=neutral, PublicKeyToken=4aa992bb5d22d4ff, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\gmaps-api-net.0.32.0\lib\net461\Google.Maps.dll</HintPath>
+    <Reference Include="Google.Maps, Version=0.33.0.0, Culture=neutral, PublicKeyToken=4aa992bb5d22d4ff, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\gmaps-api-net.0.33.0\lib\net461\Google.Maps.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="Transformalize, Version=0.8.39.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Transformalize.0.8.39-beta\lib\net462\Transformalize.dll</HintPath>
+    <Reference Include="Transformalize, Version=0.10.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Transformalize.0.10.1-beta\lib\net462\Transformalize.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

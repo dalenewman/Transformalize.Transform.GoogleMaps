@@ -2,25 +2,24 @@
 <package>
   <metadata>
     <id>Transformalize.Transform.GoogleMaps.Autofac</id>
-    <version>0.8.30-beta</version>
+    <version>0.10.1-beta</version>
     <title>Transformalize Transform using Google Maps API Autofac Module</title>
     <authors>Dale Newman</authors>
     <owners>Dale Newman</owners>
     <projectUrl>https://github.com/dalenewman/Transformalize.Transform.GoogleMaps</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Transformalize Transform using Google Maps API Autofac Module</description>
-    <releaseNotes>
-    </releaseNotes>
-    <copyright>Copyright 2018-2020</copyright>
+    <releaseNotes>gen maint</releaseNotes>
+    <copyright>Copyright © 2018-2022</copyright>
     <tags>etl</tags>
     <dependencies>
       <group targetFramework="net462">
-        <dependency id="Transformalize.Container.Autofac" version="0.8.35-beta" />
-        <dependency id="Transformalize.Transform.GoogleMaps" version="0.8.30-beta" />
+        <dependency id="Transformalize.Container.Autofac" version="0.10.0-beta" />
+        <dependency id="Transformalize.Transform.GoogleMaps" version="0.10.1-beta" />
       </group>
     </dependencies>
   </metadata>
   <files>
-    <file src="..\src\Transformalize.Transform.GoogleMaps.Autofac\bin\Debug\Transformalize.Transform.GoogleMaps.Autofac.dll" target="lib\net462\Transformalize.Transform.GoogleMaps.Autofac.dll" />
+    <file src="..\src\Transformalize.Transform.GoogleMaps.Autofac\bin\Release\Transformalize.Transform.GoogleMaps.Autofac.dll" target="lib\net462\Transformalize.Transform.GoogleMaps.Autofac.dll" />
   </files>
 </package>
