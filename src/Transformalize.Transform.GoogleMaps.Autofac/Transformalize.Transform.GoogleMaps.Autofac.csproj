@@ -1,102 +1,18 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{EBDDC97C-BBC1-493E-9DFD-C74478B34E8E}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Transformalize.Transform.GoogleMaps.Autofac</RootNamespace>
-    <AssemblyName>Transformalize.Transform.GoogleMaps.Autofac</AssemblyName>
-    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <Deterministic>true</Deterministic>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Version>0.11.1-beta</Version>
+    <FileVersion>0.11.1</FileVersion>
+    <AssemblyVersion>0.11.1</AssemblyVersion>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
-    <DebugSymbols>true</DebugSymbols>
-  </PropertyGroup>
-  <ItemGroup>
-    <Reference Include="Autofac, Version=4.9.4.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Autofac.4.9.4\lib\net45\Autofac.dll</HintPath>
-    </Reference>
-    <Reference Include="Cfg.Net.Environment, Version=0.14.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Cfg-NET.Environment.0.14.0-beta\lib\netstandard2.0\Cfg.Net.Environment.dll</HintPath>
-    </Reference>
-    <Reference Include="Cfg.Net.Reader, Version=0.14.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Cfg-NET.Reader.0.14.0-beta\lib\netstandard2.0\Cfg.Net.Reader.dll</HintPath>
-    </Reference>
-    <Reference Include="Cfg.Net.Shorthand, Version=0.14.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Cfg-NET.Shorthand.0.14.0-beta\lib\netstandard2.0\Cfg.Net.Shorthand.dll</HintPath>
-    </Reference>
-    <Reference Include="CfgNet, Version=0.14.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Cfg-NET.0.14.0-beta\lib\net462\CfgNet.dll</HintPath>
-    </Reference>
-    <Reference Include="DateMath, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\DateMath.1.2.0\lib\net462\DateMath.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.IO.Compression.FileSystem" />
-    <Reference Include="System.Numerics" />
-    <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Xml" />
-    <Reference Include="Transformalize, Version=0.10.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Transformalize.0.10.1-beta\lib\net462\Transformalize.dll</HintPath>
-    </Reference>
-    <Reference Include="Transformalize.Container.Autofac, Version=0.10.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Transformalize.Container.Autofac.0.10.0-beta\lib\net462\Transformalize.Container.Autofac.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="GoogleMapsModule.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="app.config" />
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Transformalize.Transform.GoogleMaps\Transformalize.Transform.GoogleMaps.csproj">
-      <Project>{d1fc30b8-affc-4c3a-a99f-5555d1465db1}</Project>
-      <Name>Transformalize.Transform.GoogleMaps</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <PropertyGroup>
-    <PostBuildEvent>set f="$(SolutionDir)..\Transformalize\Pipeline.Command\plugins"
 
-if exist %25f%25 copy /Y "$(TargetDir)Google.Maps.dll" "%25f%25"
-if exist %25f%25 copy /Y "$(TargetDir)Newtonsoft.Json.dll" "%25f%25"
-if exist %25f%25 copy /Y "$(TargetDir)Transformalize.Transform.GoogleMaps.*" "%25f%25"
-if exist %25f%25 copy /Y "$(TargetDir)Transformalize.Transform.GoogleMaps.Autofac.*" "%25f%25"
+  <ItemGroup>
+    <PackageReference Include="Transformalize.Container.Autofac" Version="0.11.1-beta" />
+  </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Transformalize.Transform.GoogleMaps\Transformalize.Transform.GoogleMaps.csproj" />
+  </ItemGroup>
 
-</PostBuildEvent>
-  </PropertyGroup>
 </Project>
